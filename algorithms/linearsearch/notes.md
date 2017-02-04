@@ -9,5 +9,7 @@ linearSearch(A, v)
 ```
 
 Average performance: O(n)
+
 Worst-case performance: O(n)
+
 Best-case performance: O(1)
