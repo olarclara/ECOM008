@@ -8,5 +8,6 @@ linearSearch(A, v)
 	return NULL		
 ```
 
+Average performance: O(n)
 Worst-case performance: O(n)
 Best-case performance: O(1)
