@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int linearsearch(int *arr, int size, int element) {
+int linearIterative(int *arr, int size, int element) {
 	int i;
 	for (i = 0; i < size; i++) {
 		if (*(arr+i) == element) return i;
@@ -9,8 +9,14 @@ int linearsearch(int *arr, int size, int element) {
 	return -1;
 }
 
+int linearRecursive(int *arr, int size, int element) {
+	if (size < 0) { return -1; }
+	if (*(arr+size-1) == element) { return size-1; }
+	return linearRecursive(arr, size-1, element);
+}
+
 int main() {
-	int *arr, size, element, i;
+	int *arr, size, element, i, iterativeOutput, recursiveOutput;
 
 	printf("Enter the size of your array: ");
 	scanf("%d", &size);
@@ -23,9 +29,10 @@ int main() {
 	printf("Enter the element you want to search: ");
 	scanf("%d", &element);
 
-	i = 0;
-	i = linearsearch(arr, size, element);
+	iterativeOutput = 0, recursiveOutput = 0;
+	iterativeOutput = linearIterative(arr, size, element);
+	recursiveOutput = linearRecursive(arr, size, element);
 
-	printf("The element is found at position: %d.\n", i+1);
+	printf("The element is found at position: %d.\n", iterativeOutput+1);
 	return 0;
 }
