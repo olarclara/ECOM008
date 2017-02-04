@@ -7,3 +7,6 @@ linearSearch(A, v)
 			then return i
 	return NULL		
 ```
+
+Worst-case performance: O(n)
+Best-case performance: O(1)
