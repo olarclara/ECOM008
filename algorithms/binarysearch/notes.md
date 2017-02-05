@@ -11,3 +11,9 @@ binarySearch(A, p, q, v)
 		then return binarySearch(A, 1, m-1, v)
 	else return binarySearch(A, m+1, length[A], v)
 ```
+
+Average performance: O(log n)
+
+Worst-case performance: O(log n)
+
+Best-case performance: O(1)
