@@ -15,9 +15,19 @@ int binaryIterative(int *arr, int size, int element) {
 	return -1;
 }
 
-// int binaryRecursive(int *arr, int size, int element) {
-// 	//TODO
-// }
+int binaryRecursive(int *arr, int begin, int end, int element) {
+	if (end >= begin) {
+
+		int middle = (begin + end) / 2;
+
+		if(*(arr+middle) == element) return middle;
+
+		if(*(arr+middle) > element) return binaryRecursive(arr, begin, middle-1, element);
+
+		if(*(arr+middle) < element) return binaryRecursive(arr, middle+1, end, element);
+	}
+	return -1;
+}
 
 int main() {
 	int *arr, size, element, i, iterativeOutput, recursiveOutput;
@@ -34,9 +44,9 @@ int main() {
 	scanf("%d", &element);
 
 	iterativeOutput = 0, recursiveOutput = 0;
-	iterativeOutput = binaryIterative(arr, size, element);
-	recursiveOutput = binaryRecursive(arr, size, element);
+	// iterativeOutput = binaryIterative(arr, size, element);
+	recursiveOutput = binaryRecursive(arr, 0, size, element);
 
-	printf("The element is found at position: %d.\n", iterativeOutput+1);
+	printf("The element is found at position: %d.\n", recursiveOutput+1);
 	return 0;
 }
