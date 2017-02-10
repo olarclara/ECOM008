@@ -2,7 +2,7 @@
 
 ```
 bubbleSort(A, v)
-	for i = 0 to length[A] - 1
+	for i = length[A] - 1 to 0
 		for j = 0 to length[A] - 1
 			if A[j] > A[j+1]
 				swap(A[j], A[j+1])
