@@ -1,23 +1,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int bubbleIterative(int *arr, int size) {
-	int i, j, aux;
-	for (i = 0; i < (size-1); i++) {
-		if (*(arr+j) > *(arr+(j+1))) {
-			aux = *(arr+j);
-			*(arr+j) = *(arr+(j+1));
-			*(arr+(j+1)) = aux;
-		}
-	}
-	return 0;
+void swap(int *x, int *y) {
+	int aux;
+	aux = *x;
+	*x = *y;
+	*y = aux;
 }
 
-// void bubbleRecursive(int *arr, int size) {
-// 	//TODO
+void bubbleIterative(int *arr, int size) {
+	int i, j;
+
+	for(i = 0; i < (size-1); i++) {
+		for(j = 0; j < (size-1); j++) {
+			if(*(arr+j) > *(arr+(j+1))) swap((arr+j), (arr+(j+1)));
+		}
+	}
+}
+
+// void bubbleRecursive(int *arr, int start, int end) {
+// 	// TODO
 // }
 
-int main() {
+int main(void) {
 	int *arr, size, i;
 
 	printf("Enter the size of your array: ");
@@ -25,10 +30,15 @@ int main() {
 
 	arr = (int *)malloc(size * sizeof(int));
 
-	printf("Enter the elements of your array: ");
 	for(i = 0; i < size; i++) scanf("%d", (arr+i));
+
+	printf("Your array before sorting is: ");
+	for(i = 0; i < size; i++) printf("%d ", *(arr+i));
 
 	bubbleIterative(arr, size);
 
-	for(i = 0; i < size; i++) printf("%d", *(arr+i));
+	printf("\nYour array after sorting is: ");
+	for(i = 0; i < size; i++) printf("%d ", *(arr+i));
+
+	return 0;
 }
