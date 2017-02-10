@@ -11,8 +11,8 @@ void swap(int *x, int *y) {
 void bubbleIterative(int *arr, int size) {
 	int i, j;
 
-	for(i = 0; i < (size-1); i++) {
-		for(j = 0; j < (size-1); j++) {
+	for(i = size - 1; i >= 0; i--) {
+		for(j = 0; 	j < i; j++) {
 			if(*(arr+j) > *(arr+(j+1))) swap((arr+j), (arr+(j+1)));
 		}
 	}
