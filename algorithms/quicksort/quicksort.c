@@ -9,29 +9,23 @@ void swap(int *x, int *y) {
 	*y = aux;
 }
 
-int pivot(int i, int j) { return((i+j)/2); }
+int partition(int *arr, int p, int q) {
+	int random = (rand() % (q - p + 1));
+	swap((arr+(p+random)), (arr+q));
 
-void quicksort(int arr[], int m, int n) {
-	int key, i, j, k;
+	int i = p - 1;
+	for (int j = p; j <= q; j++) {
+		if(*(arr+j) <= *(arr+q)) swap((arr+(++i)), (arr+j));
+	}
 
-	if(m < n) {
-		k = pivot(m, n);
-		swap(&arr[m], &arr[k]);
+	return i;
+}
 
-		key = arr[m];
-		i = m+1;
-		j = n;
-
-		while(i <= j) {
-			while((i <= n) && (arr[i] <= key)) { i++; }
-			while((j >= m) && (arr[j] > key)) { j--; }
-
-			if (i < j) { swap(&arr[i], &arr[j]); }
-		}
-
-		swap(&arr[m], &arr[j]);
-		quicksort(arr, m, j-1);
-		quicksort(arr, j+1, n);
+void quicksort(int *arr, int p, int q) {
+	if(p < q) {
+		int pivot = partition(arr, p, q);
+		quicksort(arr, p, pivot-1);
+		quicksort(arr, pivot+1, q);
 	}
 }
 
