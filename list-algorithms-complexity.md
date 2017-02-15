@@ -51,7 +51,7 @@ T(n) = T(n/n) + log(2,n) * 1 = 1 + log(2,n)
 Thus, binary search is _O(log(2,n))._		
 ```
 
-### 6. Show that _f(n) + g(n) = O(max{f(n),g(n)})_.
+<!-- ### 6. Write and solve the recurrence relation for the quicksort algorithm.
 
 ```
 T(n) = 2T(n/2) + n
@@ -64,5 +64,40 @@ Given that _2^k = n -> k = log(2,k)_:
 
 T(n) = n*1 + log(2,n) * n = n + log(2,n) * n
 
-Thus, _O(max{f(n),g(n)}) = O(n*log(2,n)_
+This,
+```
+
+### 7. Show that _f(n) + g(n) = O(max{f(n),g(n)})_. -->
+
+### 10. Write a function is Haskell which receives a list and returns the sum of every element of the list.
+
+```
+sum:: [int] -> int
+sum [ ] = [ ]
+sum (a:as) = a + sum[as]
+```
+
+### 11. Write a function in Haskell which receives a list and returns the product of every element of the list.
+
+```
+prod:: [int] -> int
+prod [ ] = [ ]
+prod (a:as) = a * prod[as]
+```
+
+### 12. Write a function in Haskell which receives two integers (base and exponent) and returns the power output.
+
+```
+pow:: [int] -> int
+pow	n m
+		n == 0 = 1
+		n > - = m * pow(n-1, m)
+```
+
+### 13. Write a function in Haskell that given a list returns its size.
+
+```
+len:: [int] -> int
+len [ ] = [ ]
+len (a:as) = 1+len[as]
 ```
