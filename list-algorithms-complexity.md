@@ -28,3 +28,41 @@ As we grow the values of c and n, we can clearly see that n^3 <= cn^2 is false, 
 
 Since there are values for c and n0 that make _2 <= c_ true, we can say that _2^(n+1)_ is _O(n^2)._
 ```
+
+### 4. Write and solve the recurrence relation for the linear search algorithm.
+
+```
+Linear search has no recurrence relation.
+```
+
+### 5. Write and solve the recurrence relation for the binary search algorithm.
+
+```
+T(n) = T(n/2)+1
+T(n/2) = T(n/4) + 1 + 1
+T(n/4) = T(n/8) + 1 + 1 + 1
+...
+T(n) = T(n/2^k) + k*1
+
+Given that _2^k = n -> k = log(2,k)_:
+
+T(n) = T(n/n) + log(2,n) * 1 = 1 + log(2,n)
+
+Thus, binary search is _O(log(2,n))._		
+```
+
+### 6. Show that _f(n) + g(n) = O(max{f(n),g(n)})_.
+
+```
+T(n) = 2T(n/2) + n
+T(n/2) = 2*(T(n/4)+n) + n
+T(n/4) = 2*[2*(2*T(n/8)+n)+n] + n
+...
+T(n/k) = 2^k * n/(2^k) + k*n
+
+Given that _2^k = n -> k = log(2,k)_:
+
+T(n) = n*1 + log(2,n) * n = n + log(2,n) * n
+
+Thus, _O(max{f(n),g(n)}) = O(n*log(2,n)_
+```
