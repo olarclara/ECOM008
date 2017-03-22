@@ -12,8 +12,6 @@ typedef struct list {
   Node * head;
 } List;
 
-Node * createNode(int data);
-
 Node * createNode(int data) {
   Node * newNode = malloc(sizeof(Node));
   newNode -> data = data;
